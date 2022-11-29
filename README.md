@@ -33,7 +33,6 @@ Back-end:
 
 > Clone o repo
 ```bash
-git clone git@github.com:Vitosoaresp/banking-online.git
 cd banking-online
 ``` 
 
