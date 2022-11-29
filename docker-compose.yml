@@ -1,0 +1,56 @@
+version: '3.9'
+services:
+  frontend:
+    container_name: ng_frontend
+    working_dir: /web
+    build: ./web
+    ports:
+      - 3000:3000
+    restart: always
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - rede-virtual-1
+  backend:
+    container_name: ng_backend
+    working_dir: /app-backend
+    build: ./server
+    ports:
+      - 3001:3001
+      - 5555:5555
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+    volumes:
+      - ./server/src:/app-backend/src
+      - ./server/prisma:/app-backend/prisma
+    networks:
+      - rede-virtual-1
+      - rede-virtual-2
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3001"] 
+      timeout: 10s
+      retries: 5
+    environment:
+      - JWT_SECRET=jwt_secret
+      - DB_PASS=password
+      - DATABASE_URL=postgresql://postgres:password@db:5432/ng-cash?schema=public
+  db:
+    container_name: db_postgres
+    image: postgres:13.2
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+    restart: always
+    volumes:
+      - ./server/database:/var/lib/postgresql/data
+    networks:
+      - rede-virtual-2
+networks:
+  rede-virtual-1:
+  rede-virtual-2:
+        
