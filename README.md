@@ -59,7 +59,8 @@ npm run db:push
  -  Banco de dados: 5432
 
 <hr />
-![2](https://user-images.githubusercontent.com/85747490/204544262-61317bd5-7a73-4404-b496-3dba7d16a9a6.png)
+![2](https://user-images.githubusercontent.com/85747490/204544476-b4efb15f-930a-4bbc-8428-673bac8af38e.png)
+
 
 
 
