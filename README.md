@@ -1,6 +1,7 @@
 # Banco on-line
+![Sem título](https://user-images.githubusercontent.com/85747490/204543733-6367fc9f-c0a4-4a67-a1ce-10faa4d3a059.png)
 
-![image](https://ibb.co/74Qd0t8)
+
 
 # Contexto
 Este projeto trata-se de uma aplicação onde é possível ver e enviar o seu saldo á algum outro usuário, filtrar suas transações por enviadas, recebidas ou por um período de data específico.
